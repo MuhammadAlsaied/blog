@@ -1,4 +1,4 @@
 # blog
-Technologies used:\n
-Frontend => angular 7\n
+Technologies used:<br>
+Frontend => angular <br>
 Backend => (Rest apis) using Spring boot
