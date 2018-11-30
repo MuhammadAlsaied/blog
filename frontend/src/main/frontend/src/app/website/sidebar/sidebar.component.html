@@ -1,0 +1,40 @@
+<div class="col-md-4">
+    <!-- post widget -->
+    <div class="aside-widget">
+      <div class="section-title text-right">
+        <h2>الأكثر قراءة</h2>
+      </div>
+
+      <div *ngFor="let a of popularArticles" class="post post-widget">
+        <a class="post-img" [routerLink]="['/article',a.id]" routerLinkActive="router-link-active" >
+          <img src="{{a.imageUrl}}" alt="">
+        </a>
+        <div class="post-body">
+          <h3 class="post-title text-right">
+            <a [routerLink]="['/article',a.id]" routerLinkActive="router-link-active" >{{a.title}}</a>
+          </h3>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- /post widget -->
+
+    <!-- tags -->
+    <div class="aside-widget">
+      <div class="section-title text-right">
+        <h2>الكلمات الدليلية</h2>
+      </div>
+      <div class="category-widget text-right">
+        <ul>
+          <li *ngFor="let t of tags">
+            <a [routerLink]="['/tag',t.id]" routerLinkActive="router-link-active"  class="cat-4">{{t.name}}
+              <span>{{counts.get(t.id)}}</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <!-- /tags -->
+  </div>

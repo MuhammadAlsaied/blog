@@ -1,0 +1,26 @@
+<header id="header">
+  <!-- Nav -->
+    <!-- Main Nav -->
+    <div id="nav nav-fixed">
+      <div class="container">
+        <!-- logo -->
+        <div class="nav-logo">
+          <a [routerLink]="['/']" routerLinkActive="router-link-active"  class="logo">
+            <img src="assets/img/logo.png" alt="">
+          </a>
+        </div>
+        <!-- /logo -->
+
+        <!-- nav -->
+        <ul class="nav-menu nav navbar-nav">
+          <li *ngFor="let c of categories" class="cat-4">
+            <a [routerLink]="['/category',c.id]" >{{c.name}}</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <!-- /Main Nav -->
+  <!-- /Nav -->
+</header>
+<!-- /Header -->

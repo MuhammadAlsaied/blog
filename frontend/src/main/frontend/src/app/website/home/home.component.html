@@ -1,0 +1,41 @@
+<!-- section -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+
+    <!-- sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- sidebar -->
+
+    <!-- home -->
+    <!-- post -->
+    <div class="col-md-8">
+      <div *ngFor="let article of articles" class="col-md-6">
+        <div class="post">
+          <a class="post-img" [routerLink]="['/article',article.id]">
+            <img src="{{article.imageUrl}}" alt="">
+          </a>
+          <div class="post-body">
+            <div class="post-meta">
+              <a *ngFor="let tag of article.tags " class="post-category cat-4" [routerLink]="['/tag',tag.id]">{{tag.name}}</a>
+              <span class="post-date">{{article.dateCreated| date}}</span>
+            </div>
+            <h3 class="post-title">
+              <a [routerLink]="['/article',article.id]">{{article.title}}</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <!-- /post -->
+
+
+      <div class="clearfix visible-md visible-lg"></div>
+    </div>
+
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+
+<!-- /section -->
