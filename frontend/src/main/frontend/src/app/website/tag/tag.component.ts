@@ -23,11 +23,12 @@ export class TagComponent implements OnInit {
       } else {
         this.page = params.page;
       }
+      this.articleService.getTag(this.id).subscribe(
+        res => this.tag = res);
+      this.articleService.getArticlesByTag(this.id, this.page).subscribe(
+        res => this.articles = res);
     });
-    this.articleService.getTag(this.id).subscribe(
-      res => this.tag = res);
-    this.articleService.getArticlesByTag(this.id, this.page).subscribe(
-      res => this.articles = res);
+
   }
   next() {
     this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(() =>

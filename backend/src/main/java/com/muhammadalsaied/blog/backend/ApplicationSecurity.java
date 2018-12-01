@@ -6,15 +6,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 /**
  * Created by @author Muhammed Alsaied On Nov 9, 2018
- *  muhammadalsaied96@gmail.com
+ * muhammadalsaied96@gmail.com
  */
 @Configuration
 public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
-    @Override
+	@Override
     public void configure(WebSecurity web) throws Exception {
-        web
-           .ignoring()
-               .antMatchers("/**");
+      web.ignoring().antMatchers("/**");
     }
 }

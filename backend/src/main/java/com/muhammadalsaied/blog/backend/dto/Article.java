@@ -28,7 +28,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Length(min = 20, message = "Must be not less than 20 characters")
+    @Length(min = 10, message = "Must be not less than 20 characters")
     private String title;
 
 

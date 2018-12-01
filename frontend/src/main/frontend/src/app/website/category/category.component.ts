@@ -21,12 +21,12 @@ export class CategoryComponent implements OnInit {
       } else {
         this.page = params.page;
       }
-
+      this.articleService.getCategory(this.id).subscribe(
+        res => this.category = res);
+      this.articleService.getArticlesByCategory(this.id, this.page).subscribe(
+        res => this.articles = res);
     });
-    this.articleService.getCategory(this.id).subscribe(
-      res => this.category = res);
-    this.articleService.getArticlesByCategory(this.id, this.page).subscribe(
-      res => this.articles = res);
+
   }
   next() {
     this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(() =>

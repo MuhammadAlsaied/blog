@@ -9,6 +9,24 @@ export class ArticleService {
     url = 'http://localhost:8080/api/';
     constructor(private http: HttpClient) { }
     result;
+    authenticated = false;
+
+    authenticate(credentials, callback) {
+
+        const headers = new HttpHeaders(credentials ? {
+            authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
+        } : {});
+
+        this.http.get('user', { headers: headers }).subscribe(response => {
+            if (response['name']) {
+                this.authenticated = true;
+            } else {
+                this.authenticated = false;
+            }
+            return callback && callback();
+        });
+
+    }
     getArticles() {
         return this.http.get(this.url + 'articles').pipe(
             map(response => response));
